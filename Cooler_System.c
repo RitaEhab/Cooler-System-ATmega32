@@ -10,12 +10,12 @@
 
 int main(void)
 {
-	System_init();		// Initialize system modules
+    System_init();								// Initialize system modules
     while(1)
     {
-		uint8_t temperature = getTemp();					// Get current temperature
-		uint8_t speed = checkTempGetSpeed(temperature);		// Get speed corresponding to the current temperature
-		applySpeedOnMotor(speed);							// Increase/decrease motor speed according to measured temperature
+		uint8_t temperature = getTemp();				// Get current temperature
+		uint8_t speed = checkTempGetSpeed(temperature);			// Get speed corresponding to the current temperature
+		applySpeedOnMotor(speed);					// Increase/decrease motor speed according to measured temperature
 		displayTempAndSpeed(temperature, speed);			// Display both on screen
-	}
+    }
 }
