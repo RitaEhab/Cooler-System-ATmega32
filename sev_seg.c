@@ -25,21 +25,21 @@ void sev_seg_init()
  */
 void sev_seg_write(uint8_t data)
 {
-	#if SEV_SEG_TWO_DISPLAY == 1		// Multiplex 2 seven segments
-	EN1(0);								// Enable left seven segment & disable right seven segment
+	#if SEV_SEG_TWO_DISPLAY == 1			// Multiplex 2 seven segments
+	EN1(0);						// Enable left seven segment & disable right seven segment
 	EN2(1);
-	convert(data/10);					// Display tens digit of the number
+	convert(data/10);				// Display tens digit of the number
 	_delay_ms(10);
-	#if SEV_SEG_TIMER_IN_SEC == 1		// Add time delay to display numbers on seven segment every second
+	#if SEV_SEG_TIMER_IN_SEC == 1			// Add time delay to display numbers on seven segment every second
 	_delay_ms(200);
 	#endif
 	#endif
 	
-	EN1(1);								// Enable right seven segment & disable left seven segment
+	EN1(1);						// Enable right seven segment & disable left seven segment
 	EN2(0);
-	convert(data%10);					// Display units digit of the number
+	convert(data%10);				// Display units digit of the number
 	_delay_ms(10);
-	#if SEV_SEG_TIMER_IN_SEC == 1		// Add time delay to display numbers on seven segment every second
+	#if SEV_SEG_TIMER_IN_SEC == 1			// Add time delay to display numbers on seven segment every second
 	_delay_ms(200);
 	#endif
 }
