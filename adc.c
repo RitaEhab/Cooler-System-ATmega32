@@ -33,7 +33,7 @@ void ADC_init()
 	ADMUX = 7;								// Internal Vref off, Input Channel ADC7
 	#endif
 	
-	ADCSRA = 0x87;							// prescaler division factor 128 and enable ADC
+	ADCSRA = 0x87;								// prescaler division factor 128 and enable ADC
 }
 
 /*
@@ -43,7 +43,7 @@ void ADC_init()
  */
 uint16_t ADC_read()
 {
-	SETBIT(ADCSRA,6);						// ADC start conversion
-	while(READBIT(ADCSRA,6) == 1) {};		// When the conversion is complete, this bit returns to zero
+	SETBIT(ADCSRA,6);							// ADC start conversion
+	while(READBIT(ADCSRA,6) == 1) {};					// When the conversion is complete, this bit returns to zero
 	return ADC;								// return result of conversion
 }
