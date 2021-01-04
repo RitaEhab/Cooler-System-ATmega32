@@ -18,7 +18,7 @@ void System_init()
 
 uint8_t getTemp()
 {
-	uint16_t adc_value = ADC_read();						// Get temp from temp sensor on ADC0
+	uint16_t adc_value = ADC_read();				// Get temp from temp sensor on ADC0
 	uint8_t temp = 20 + (30.0 * (++adc_value/1024.0));		// 30 = 5volt * 6deg/volt (res = 30deg/5volt) & 20 is base temp
 	return temp;
 }
@@ -29,17 +29,17 @@ uint8_t checkTempGetSpeed(uint8_t temp)
 	if (temp <= 35)
 	{
 		LED_OFF();			// Indicates temp is less than 35 degree
-		duty_cycle = 0;		// Motor speed = zero
+		duty_cycle = 0;			// Motor speed = zero
 	}
 	else
 	{
 		LED_ON();			// Indicates temp is more than 35 degree
-		if		((temp >  35 ) && (temp < 38 ))		duty_cycle = 50;
+		if	((temp >  35 ) && (temp < 38 ))		duty_cycle = 50;
 		else if ((temp >= 38 ) && (temp < 40 ))		duty_cycle = 60;
 		else if ((temp >= 40 ) && (temp < 42 ))		duty_cycle = 70;
 		else if ((temp >= 42 ) && (temp < 45 ))		duty_cycle = 80;
 		else if ((temp >= 45 ) && (temp < 48 ))		duty_cycle = 90;
-		else										duty_cycle = 100;
+		else						duty_cycle = 100;
 	}
 	return duty_cycle;
 }
