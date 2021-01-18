@@ -16,4 +16,3 @@ A sensor measures temperature & if it’s greater than 35°c, a cooler starts ru
 - LED and Buzzer
 - Temperature sensor
 - LCD & seven segment
-- Buzzer
